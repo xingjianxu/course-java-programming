@@ -1,0 +1,233 @@
+\begin{frame}[fragile]
+  \frametitle{类的定义}
+  \begin{javacode}
+  //定义了类：采用驼峰标记
+  public class Person {
+    //定义成员变量：驼峰标记法
+    String id;
+    String name;
+    int age;
+    
+    //定义构造方法
+    public Person(String fullName, int age) {
+      this.fullName = fullName;
+      this.age = age;
+    }
+
+    //定义方法：驼峰标记法
+    void speak(String something) {
+      System.out.println(something);
+    }
+    
+  }
+  \end{javacode}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{类定义中的要点}
+  \begin{itemize}
+    \item 使用\javainline{class}关键字定义一个类：
+      \begin{javacode}
+      class 类名 {
+        类体
+      } //注意，此处没有“;”
+      \end{javacode}
+    \item \javainline{class} 后面的花括号括住的内容称为“类体”
+    \item 代码风格要求：
+      \begin{itemize}
+        \item 类名采用大驼峰标记
+        \item 包围类体的左花括号写在行尾，前面和类名留一个空格，不要新起一行！
+        \item 包围类体的右花括号单独新起一行
+      \end{itemize}
+      \begin{javacode}
+        class Test
+        {//错误！左花括号应该在上一行的末尾
+        }
+        class test //错误！类名使用大驼峰标记
+      \end{javacode}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{成员变量的声明和初始化}
+  \begin{itemize}
+    \item 对象的属性也称对象的成员变量（member variable，field）
+    \item 成员变量是属于对象的，同一个类实例化出的不同对象虽然有着相同类型的成员变量，但是成员变量的赋值却可以不一样
+    \item 也即，成员变量的值是绑定在对象上的，而不是类上的
+    \item 成员变量的作用域为整个类体
+    \item 定义成员变量的方法和定义变量的方法类似：
+      \begin{javacode}
+        public class Test {
+          int a; // 定义一个成员变量
+          int b = 2; // 定义一个成员变量，并赋予默认值（也称为初始化）
+          private String c; // 成员变量的前部可以加修饰符
+        }
+      \end{javacode}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{成员变量声明中的代码风格}
+  \begin{itemize}
+    \item 一行只声明一个成员变量
+    \item 如果要为成员变量赋予默认值，等号两边要各有一个空格！
+    \item 成员变量的命名采用小驼峰标记法
+  \end{itemize}
+  \begin{javacode}
+    public class Test {
+      int a; int c;// 错误！一行只推荐定义一个成员变量
+      int b=2; // 错误！等号两边需要有空格
+      String MyName; // 错误！请使用小驼峰标记法
+      String my_name; // 错误！请使用小驼峰标记法
+   }
+  \end{javacode}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{构造函数}
+  \begin{itemize}
+    \item 构造函数是定义在类体中，用于初始化对象的一种特殊函数，在创建类的对象时，会调用该类的构造函数
+    \item 和类体中的一般方法不同，其函数名必须和类名相同，且无需声明返回值类型，也没有返回值(即不能使用\javainline{return}语句)
+    \item 当类体中不定义任何构造函数时，Java会为该类自动添加一个默认构造函数。默认构造函数本质是一个无参的、空函数体的构造函数
+    \item 当类体中定义了任何一个构造函数时，Java则不会再为该类田间一个默认构造函数
+    \item 在类体中可以使用\javainline{this}关键字指代“当前对象本身”，通过\javainline{this}可以调用本对象的所有方法和属性(不管其控制访问修饰符为何)：\javainline{this.[方法名或属性名]}
+    \item 使用\javainline{this}可以区分同名变量
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{构造函数举例}
+  \begin{javacode}
+    public class Person {
+      public String name;
+      
+      //相当于无参构造函数
+      public Person(){
+      }
+      
+      //通过构造函数给成员变量进行初始化赋值
+      public Person(String name) {
+        //this.name指成员变量name，等号右边的name为构造函数的形参
+        this.name = name; 
+      }
+      
+      public String getName() {
+        return this.name;
+      }
+    }  
+  \end{javacode}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{定义方法}
+  \begin{itemize}
+    \item 类体中除了构造函数之外的函数称为“方法”
+    \item 如果类的方法签名中定义了返回值类型，方法体中最后需要使用\javainline{return}返回
+    \item 如果该方法不返回任何值，应该在方法签名中将函数返回值类型设置为\javainline{void}
+    \item 代码风格：
+      \begin{itemize}
+        \item 方法名采用小驼峰命名法
+        \item 同类定义中花括号的使用原则一样，方法体的左花括号写在方法签名行的末尾，右花括号新起一行顶头写
+        \item 多个形参之间使用逗号隔开时，逗号后面需要有一个空格：\javainline{int add(int x, int y)}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{定义方法举例}
+  \begin{javacode}
+    public class Person {
+      public String name;
+      
+      public String getName() { //有返回值
+        return this.name;
+      }
+      
+      public void printName() { //无返回值
+        System.out.println(this.name);
+      }
+      
+      public void setName(String name) {
+        this.name = name; //直接使用形参
+      }
+    }  
+  \end{javacode}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{对象的创建和使用}
+  \begin{itemize}
+    \item 对象的创建也称为类的实例化
+    \item 使用“\javainline{new 构造函数([args])}”的方式创建对象
+    \item 使用\javainline{对象.[方法名或属性名]}的方式访问该对象的方法或属性
+  \end{itemize}
+  \begin{javacode}
+    public class Test {
+      public static void main(String[] args) {
+        Person p = new Person("Jim");
+        System.out.println(p.name); //访问对象的属性
+        System.out.println(p.getName()); //调用对象的方法
+      }
+    }
+  \end{javacode}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{静态成员变量和静态方法}
+\end{frame}
+
+\begin{frame}
+  \frametitle{包}
+\end{frame}
+
+\begin{frame}
+  \frametitle{访问控制修饰符}
+  使用访问控制符来保护对类、变量、方法和构造方法的访问：
+  \begin{itemize}
+    \item \javainline{default}：默认的访问控制符(即缺省，什么也不写），表示在同一包内可见。使用对象：类、接口、变量、方法
+    \item \javainline{private}：在同一类内可见。使用对象：变量、方法。不能修饰类（外部类）
+    \item \javainline{protected}：对同一包内的类和所有子类可见。使用对象：变量、方法。不能修饰类（外部类）
+    \item \javainline{public}：对所有类可见。使用对象：类、接口、变量、方法
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{访问控制修饰符的应用举例}
+  \begin{javacode}
+  public class Person {
+    private String name = "x";
+    public int age = 21;
+  }  
+  public class Test() {
+     public static void main(String[] args) {
+        Person p = new Person();
+        p.name; //错误！无法从别地类中访问private修饰的属性和方法
+        p.age; //正确
+      } 
+  }
+  \end{javacode}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{外部类与内部类}
+\end{frame}
+
+\begin{frame}
+  \frametitle{对象的创建和使用}
+  \begin{itemize}
+    \item 必须使用\texttt{new}关键字
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{对象的本质}
+  \begin{itemize}
+    \item 使用\javainline{new}关键字创建类的一个实例对象，本质是在内存中分配一片内存，并将该内存的指针赋值给新创建的对象变量
+    \item 除了基本类型外，所有Java中的对象，本质上都是指针
+    \item 所以Java中方法的形参，如果是基本类型，则为传值调用，如果为对象，则为传址调用！
+  \end{itemize}
+\end{frame}
+

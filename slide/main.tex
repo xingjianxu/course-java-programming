@@ -1,0 +1,71 @@
+% !TEX TS-program = xeLaTeX+MakeIndex+BibTeX 
+\documentclass[xcolor=x11names,compress]{ctexbeamer}
+
+\input{header.tex}
+
+\title{Java编程技术}
+
+\author{徐行健}
+ 
+\institute
+{
+  计算机与信息工程学院\\
+  内蒙古师范大学
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[t]
+  \frametitle{目录}
+    \begin{multicols}{2}
+      \tableofcontents
+    \end{multicols}
+\end{frame}
+
+\section[第一部分：导论]{第一部分：导论}
+\subsection[第一章：概述]{第一章：概述}
+\input{01_intro}
+
+\subsection[第二章：开发环境的搭建]{第二章：开发环境的搭建}
+\input{02_devenv}
+
+\section[第二部分：Java语言基础]{第二部分：Java语言基础}
+\subsection[第三章：基本数据类型与数组]{第三章：基本数据类型与数组}
+\input{03_primitive_types_and_array}
+
+\subsection[第四章：运算符、表达式和语句]{第四章：运算符、表达式和语句}
+\input{04_expression}
+
+
+\section[第三部分：面向对象]{第三部分：面向对象}
+\subsection[第五章：面向对象编程]{第五章：面向对象编程}
+\input{05_oop}
+
+\subsection[第六章：类与对象]{第六章：类与对象}
+\input{06_class_and_object}
+
+\subsection[第七章：子类与继承]{第七章：子类与继承}
+\subsection[第八章：接口与实现]{第八章：接口与实现}
+\subsection[第九章：泛型]{第九章：泛型}
+
+\section[第四部分：实用功能]{第四部分：实用功能}
+\subsection[第十章：常用工具类]{第十章：常用工具类}
+\input{10_utilities}
+
+\subsection[第十一章：容器类]{第十一章：容器类}
+\input{11_containers}
+
+\subsection[第十二章：输入输出流]{第十二章：输入输出流}
+
+\section[第五部分：高级功能]{第五部分：高级功能}
+\subsection[第十三章：多线程技术]{第十三章：多线程技术}
+\subsection[第十四章：基于Socket的网络编程]{第十四章：基于Socket的网络编程}
+\subsection[第十五章：反射机制]{第十五章：反射机制}
+
+
+
+\end{document}

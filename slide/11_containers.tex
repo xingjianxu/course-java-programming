@@ -1,0 +1,102 @@
+\begin{frame}
+  \frametitle{主要类别}
+  \begin{itemize}
+    \item 列表：\texttt{List}，数据的一维有序集合
+    \item 集合：\texttt{Set}，类似列表，但是集合容器内没有重复的元素
+    \item 哈希表：\texttt{Map}，表示键值对
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{x}
+\end{frame}
+
+\begin{frame}
+  \frametitle{列表List}
+  实现了\texttt{List}的主要容器类：
+  \begin{itemize}
+    \item \texttt{ArrayList}：内部使用数组实现，但是长度可变
+    \item \texttt{LinkedList}：内部使用链表结构实现，可以快速的在某一位置删除和插入元素
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{List的主要方法}
+   \begin{itemize}
+    \item \javainline{boolean add(E e)}：添加元素
+    \item \javainline{boolean add(int index, E e)}：在指定位置添加元素
+    \item \javainline{E set(int index, E e)}：将指位置的元素替换为新元素
+    \item \javainline{boolean get(int index)}：取得指位置的元素
+    \item \javainline{int indexOf(E e)}：获得元素在容器里的位置
+    \item \javainline{boolean remove(int index)}：删除指位置的元素
+    \item \javainline{boolean remove(E e)}：删除制定元素
+    \item \javainline{boolean removeAll(Collection c)}：从本容器中删除\texttt{c}中指定的所有元素
+    \item \javainline{void clear()}：清空本容器
+    \item \javainline{void toArray()}：转换为数组
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{ArrayList}
+\end{frame}
+
+\begin{frame}
+  \frametitle{LinkedList}
+\end{frame}
+
+\begin{frame}
+  \frametitle{哈希表Map}
+  实现了\texttt{Map}的主要容器类：
+  \begin{itemize}
+    \item \texttt{HashMap}：不保证键值对之间的有序性
+    \item \texttt{LinkedHashMap}：保证键值对可以保持插入顺序
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Map的主要方法}
+  \begin{itemize}
+    \item \javainline{V get(K key)}：根据\texttt{key}取出一个与之对应的值
+    \item \javainline{V put(K key, V value)}：插入一个键值对
+    \item \javainline{V remove()}：根据\texttt{key}取出一个元素
+    \item \javainline{boolean containsKey(K key)}：移除容器内键为\texttt{key}对应的键值对
+    \item \javainline{int size()}：返回容器内键值对的数目
+    \item \javainline{boolean isEmpty()}：返回容器是否为空
+    \item \javainline{void putAll(map)}：将参数map中的所有键值对插入本容器
+    \item \javainline{Set<Map.Entry> entrySet()}：以\texttt{Set}的方式取出容器内所有的键值对，方便遍历
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{HashMap}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{LinkedHashMap}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Set}
+  定义为包含了不重复的元素集合，主要实现类为\texttt{HashSet}，主要方法包括：
+  \begin{itemize}
+    \item \javainline{boolean add(E e)}：
+    \item \javainline{boolean contains(E e)}：
+    \item \javainline{boolean isEmpty()}：
+    \item \javainline{boolean remove(E e)}：
+    \item \javainline{boolean removeAll(collection)}：
+    \item \javainline{void clear()}：
+    \item \javainline{void toArray()}：
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{HashSet}
+\end{frame}
+
+\begin{frame}
+  \frametitle{LinkedList}
+\end{frame}
+
