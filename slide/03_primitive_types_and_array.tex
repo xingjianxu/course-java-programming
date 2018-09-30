@@ -51,6 +51,19 @@
   \includegraphics[width=\textwidth]{figures/data_types}
 \end{frame}
 
+\begin{frame}
+  \frametitle{数字型}
+  \begin{itemize}
+    \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{为什么“1/2=0”？}
+  \begin{itemize}
+    \item 
+  \end{itemize}
+\end{frame}
 
 \begin{frame}[fragile]
   \frametitle{布尔型}
@@ -77,8 +90,8 @@
   \frametitle{字符型}
   \begin{itemize}
     \item 字符型数据表示一个字符，用单引号\texttt{'}包围（注意不能用双引号，双引号包围的是字符串！）
-    \item Java字符采用Unicode编码，每个字符占用两个字节，所以字符类型数据可以转换为整数型数据
-    \item Unicode编码的字符不光包含了Asic字符，还包含了很多外语的字母，如汉字等
+    \item Java字符采用Unicode编码，每个字符占用两个字节（称码点），所以字符类型数据可以转换为整数型数据
+    \item Unicode编码的字符不光包含了AsicII字符，还包含了很多外语的字母，如汉字等
     \item 允许使用反斜杠来表示具有特殊意义的字符
   \end{itemize}
   \begin{javacode}
@@ -93,10 +106,120 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{数字型}
+  \begin{itemize}
+    \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{字符和字符串的区别}
+  \begin{itemize}
+    \item 字符只能包含一个字母，而字符串是一个或多个字母的有序集合
+    \item 字符使用单引号，而字符串使用双引号
+    \item \javainline{char}是一个关键字，而字符串\javainline{String}是一个类
+    \item 字符可以通过强制类型转换变为与之对应的数字，而字符串不可以
+    \item 字符串不等同于字符数组！
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
   \frametitle{数组}
   \begin{itemize}
     \item 数组是多个\textbf{相同}类型数据的集合
     \item 和C语言中的数组类似，Java中的数组本质上也是一个指针，属于Java的引用类型，做为函数参数是进行传址调用
-    \item 声明方式：\java|type valName[]|
+    \item 声明方式（建议使用第一种方法，更为明了）：\java|type[] valName|或\java|type valName[]|
+    \item 声明数组时不能指定其元素个数！只有创建时可以指定元素个数！
   \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{数组的创建和初始化}
+  \begin{javacode}
+   //数组的创建
+  int[] arr1 = new int[5];
+  
+  //数组的动态初始化
+  for (int i=0;i<5;i++) {
+    arr1[i] = i; 
+  }
+  
+  //数组的静态初始化
+  int[] arr2 = {1, 2, 3};
+  \end{javacode}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{数组的基本操作}
+  \begin{itemize}
+    \item 获得数组的元素个数：
+    \java|arr.length|
+    \item 获得数组指定位置的元素：
+    \java|arr[i]|
+    \item 数组从0开始索引，获得数组的最后一个元素：
+    \java|arr[arr.length - 1]|
+    \item 如果数组的长度为$L$，则当访问不在$[0, L]$范围内的元素时，会出现\javainline{IndexOutOfBoundsException}错误（数组索引越界错误）
+    \item 访问未被赋值的元素时，返回\javainline{null}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{关键字null}
+  \begin{itemize}
+    \item 关键字\javainline{null}表示“空”的概念
+    \item 访问\javainline{null}时，会报空针错误\javainline{NullPointerException}
+    \item \javainline{null}不等于\javainline{false}，请使用\javainline{a == null}判断一个变量是否为空！
+  \end{itemize}
+  \begin{javacode}
+    int[] a = {1, 2, 3};
+    //请问下行会报错么？
+    int x = a[3]; 
+    
+    int[] b = new int[3];
+    b[0] = 1;
+    //请问下行会报错么？
+    int y = b[1] + 1;
+  \end{javacode}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{读取终端用户的输入参数}
+  \begin{itemize}
+    \item Java将用户输入的参数保存在main方法的args参数中
+    \item args参数是一个字符串数组，每个元素是一个用户输入的参数
+  \end{itemize}
+  \begin{javacode}
+    public static void main(String[] args) {
+
+    }
+  \end{javacode}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{二维数组}
+  \begin{itemize}
+    \item 可以看出组成元素为数组的数组
+    \item 声明和初始化应当遵循从高维到低维的顺序
+  \end{itemize}
+  \begin{javacode}
+    int[][] a = new int[3][];
+    int[][] b = {{1,2}, {3, 4}};
+    int[][] c = new int[][3]; //非法！
+  \end{javacode}
+\end{frame}
+
+\begin{frame}
+  \frametitle{实验一：累加器}
+  读取终端输入的数字并求和
+\end{frame}
+
+
+
+
+
+
+
+
+

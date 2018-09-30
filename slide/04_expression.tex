@@ -1,13 +1,40 @@
-\begin{frame}
-  \frametitle{}
+\begin{frame}[fragile]
+  \frametitle{运算符}
+  \begin{itemize}
+    \item 算术运算符：\texttt{+、-、*、/、\%、++、--}
+    \item 关系运算符：\texttt{>、>=、<、<=、==、!=}
+    \item 逻辑运算符：\texttt{!、\&\&、||}
+    \item 位运算符：\texttt{|，\&，...}
+    \item 赋值运算符：\texttt{=}
+    \item 扩展赋值运算符：\texttt{+=、-=、*=、/=}
+    \item 字符串链接符：\texttt{+}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{算术运算符}
+  \begin{javacode}
+    int m = 6 % 5; //为1，因为余数为1
+    int m = 6 % 2; //为0，因为可以整除
+    
+    int x = 2, y = 2;
+    int b = x++; //先赋值，再自增，b=2。计算顺序：b=x, x=x+1
+    int c = ++y; //先自增，再赋值，c=3。计算顺序：y=y+1, c=y
+    
+    3/2; //结果为1！
+    
+    //Java没有“幂运算符”，通过下述函数完成幂运算
+    Math.pow(3, 2); //3的2次方
+  \end{javacode}
+
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
-\end{frame}
+  \frametitle{逻辑运算符}
+  \begin{itemize}
+    \item 短路现象        boolean b = (a<4)&&(a++<10);
 
-\begin{frame}
-  \frametitle{}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -24,6 +51,12 @@
   
   int x = -1;
   int flag =  x > 0 ? 1 : (x == 0 ? 0 : -1)
+  // 等价于下列代码：
+  if (x > 0) {
+    flag = 0;
+  } else {
+    flag = 1;
+  }
   \end{javacode}
 
 \end{frame}
